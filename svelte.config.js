@@ -14,6 +14,7 @@ const config = {
     adapter: adapter(),
     alias: {
       '@/*': './path/to/lib/*',
+      '$convex': './src/convex',
     },
   },
 }
