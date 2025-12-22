@@ -15,6 +15,7 @@
 
   let { setState }: Props = $props()
 
+  let name = $state('')
   let email = $state('')
   let password = $state('')
   let confirmPassword = $state('')
@@ -32,7 +33,7 @@
     isLoading = true
 
     await authClient.signUp.email(
-      { name: email, email, password },
+      { name, email, password },
       {
         onError: (ctx) => {
           toast.error(ctx.error.message)
@@ -57,6 +58,13 @@
   </Card.Header>
   <Card.Content class='space-y-5 px-0 pb-0'>
     <form class='space-y-2.5' onsubmit={handleSubmit}>
+      <Input
+        bind:value={email}
+        type='text'
+        placeholder='Full Name'
+        disabled={isLoading}
+        required
+      />
       <Input
         bind:value={email}
         type='email'

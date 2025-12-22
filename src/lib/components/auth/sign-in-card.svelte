@@ -4,6 +4,7 @@
   import { authClient } from '$lib/auth-client'
   import * as Card from '$lib/components/ui/card/index.js'
   import Icon from '@iconify/svelte'
+  import { LoaderCircleIcon } from '@lucide/svelte'
   import { toast } from 'svelte-sonner'
   import Button from '../ui/button/button.svelte'
   import Input from '../ui/input/input.svelte'
@@ -71,6 +72,9 @@
         size='lg'
         disabled={isLoading}
       >
+        {#if isLoading}
+          <LoaderCircleIcon class='size-4 text-muted-foreground animate-spin' />
+        {/if}
         Continue
       </Button>
     </form>
